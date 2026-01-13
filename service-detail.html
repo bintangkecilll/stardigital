@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Layanan - Star Digital Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .bg-star-green { background-color: #28b463; }
+        .text-star-green { color: #28b463; }
+        .border-star-green { border-color: #28b463; }
+        
+        /* Custom Lighter Green for Button */
+        .bg-star-light-btn { background-color: #4ade80; } /* Tailwind green-400 */
+        .bg-star-light-btn:hover { background-color: #22c55e; } 
+
+        .check-list li { position: relative; padding-left: 2rem; margin-bottom: 0.75rem; color: #4b5563; }
+        .check-list li::before { 
+            content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900;
+            position: absolute; left: 0; top: 2px; color: #28b463; 
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 overflow-x-hidden">
+
+<nav class="fixed w-full z-[60] bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-8 py-4 flex justify-between items-center relative">
+            <div class="flex items-center space-x-2">
+                <div class="bg-star-green p-2 rounded-xl">
+                    <i class="fas fa-star text-white"></i>
+                </div>
+                <span class="text-2xl font-extrabold tracking-tighter text-gray-900">STAR<span class="text-star-green">.</span></span>
+            </div>
+
+            <div class="hidden md:flex space-x-10 font-bold text-[16px] items-center">
+                <a href="index.html" class="hover:text-star-green transition">Home</a>
+                <a href="about.html" class="hover:text-star-green transition">Tentang Kami</a>
+                <a href="service.html" class="hover:text-star-green transition">Layanan</a>
+                <a href="portfolio.html" class="hover:text-star-green transition">Portofolio</a>
+            </div>
+            
+            <button onclick="window.location.href='kontak.html'" class="hidden md:block bg-star-green text-white px-8 py-3 rounded-full font-bold hover:shadow-lg transition">
+                HUBUNGI KAMI
+            </button>
+
+            <button id="mobile-menu-btn" class="md:hidden text-gray-900 text-2xl focus:outline-none p-2" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl flex flex-col p-6 space-y-4">
+            <a href="index.html" class="font-bold text-gray-700 hover:text-star-green block py-2 border-b border-gray-50">Home</a>
+            <a href="about.html" class="font-bold text-gray-700 hover:text-star-green block py-2 border-b border-gray-50">Tentang Kami</a>
+            <a href="service.html" class="font-bold text-gray-700 hover:text-star-green block py-2 border-b border-gray-50">Layanan</a>
+            <a href="portfolio.html" class="font-bold text-gray-700 hover:text-star-green block py-2 border-b border-gray-50">Portofolio</a>
+            
+            <div class="pt-4 flex justify-center w-full">
+                <button class="bg-star-green text-white w-full py-3 rounded-full font-bold shadow-lg" onclick="window.location.href='kontak.html'">HUBUNGI KAMI</button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-gray-50 pt-32 pb-16 px-6 border-b border-gray-100">
+        <div class="container mx-auto text-center max-w-4xl">
+            <div class="inline-flex items-center space-x-2 text-sm font-bold text-gray-400 uppercase tracking-widest mb-4">
+                <a href="services.html" class="text-star-green hover:underline">Services</a>
+                <i class="fas fa-chevron-right text-xs"></i>
+                <span id="breadcrumb-current">Loading...</span>
+            </div>
+            <h1 id="service-title" class="text-3xl md:text-5xl font-black text-gray-900 mb-6">Loading Service...</h1>
+            <p id="service-desc-short" class="text-lg text-gray-500 leading-relaxed">Mohon tunggu sebentar...</p>
+        </div>
+    </header>
+
+    <section class="py-16 px-6">
+        <div class="container mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <div class="lg:col-span-2 space-y-12">
+                <div class="rounded-[2.5rem] overflow-hidden shadow-xl h-64 md:h-[450px]">
+                    <img id="service-img" src="" class="w-full h-full object-cover">
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-4">Deskripsi Layanan</h2>
+                    <p id="service-desc-long" class="text-gray-600 leading-relaxed mb-4"></p>
+                </div>
+
+                <div class="bg-green-50 p-8 rounded-[2rem]">
+                    <h3 class="text-xl font-bold mb-6 text-star-green">Apa yang Anda Dapatkan?</h3>
+                    <ul id="service-features" class="check-list grid grid-cols-1 md:grid-cols-2 gap-4">
+                        </ul>
+                </div>
+
+                <div>
+                    <h2 class="text-2xl font-bold mb-6">Alur Pengerjaan (Workflow)</h2>
+                    <p class="text-gray-500 mb-6">Kami menerapkan standar kerja profesional untuk memastikan hasil terbaik.</p>
+                    <div class="space-y-4">
+                        <div class="border border-gray-100 rounded-2xl p-6 hover:border-star-green transition bg-white shadow-sm">
+                            <h4 class="font-bold text-lg mb-2"><span class="text-star-green mr-2">01.</span> Konsultasi & Riset</h4>
+                            <p class="text-gray-500 text-sm">Kami menganalisis kebutuhan bisnis, target audiens, dan kompetitor Anda untuk menentukan strategi yang tepat.</p>
+                        </div>
+                        <div class="border border-gray-100 rounded-2xl p-6 hover:border-star-green transition bg-white shadow-sm">
+                            <h4 class="font-bold text-lg mb-2"><span class="text-star-green mr-2">02.</span> Strategi & Konsep</h4>
+                            <p class="text-gray-500 text-sm">Tim kami menyusun kerangka kerja, desain mockup (jika website), atau content plan (jika sosmed/ads).</p>
+                        </div>
+                        <div class="border border-gray-100 rounded-2xl p-6 hover:border-star-green transition bg-white shadow-sm">
+                            <h4 class="font-bold text-lg mb-2"><span class="text-star-green mr-2">03.</span> Eksekusi & Pengembangan</h4>
+                            <p class="text-gray-500 text-sm">Proses pengerjaan utama. Coding website, desain aset branding, atau setup iklan dilakukan di tahap ini.</p>
+                        </div>
+                        <div class="border border-gray-100 rounded-2xl p-6 hover:border-star-green transition bg-white shadow-sm">
+                            <h4 class="font-bold text-lg mb-2"><span class="text-star-green mr-2">04.</span> Review & Serah Terima</h4>
+                            <p class="text-gray-500 text-sm">Kami melakukan quality control, meminta feedback Anda, dan menyerahkan hasil akhir beserta panduannya.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="sticky top-24 space-y-8">
+                    
+                    <div class="bg-star-green text-white p-8 rounded-[2rem] shadow-2xl relative overflow-hidden">
+                        <div class="relative z-10">
+                            <h3 class="text-xl font-bold mb-2">Mulai Project Anda</h3>
+                            <p class="text-green-50 text-sm mb-6">Dapatkan penawaran harga spesial untuk layanan ini.</p>
+                            <a href="https://wa.me/628112772788" class="block w-full bg-star-light-btn text-white text-center font-bold py-4 rounded-xl transition shadow-md hover:scale-105 transform">
+                                <i class="fab fa-whatsapp mr-2"></i> Hubungi via WA
+                            </a>
+                            <p class="text-center text-xs text-green-100 mt-4">Respon cepat dalam 5-10 menit.</p>
+                        </div>
+                        <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-white/20 rounded-full blur-3xl"></div>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-[2rem] border border-gray-100">
+                        <h4 class="font-bold mb-4">Layanan Lainnya</h4>
+                        <ul class="space-y-3" id="other-services-list">
+                            <li><a href="?s=website" class="flex justify-between items-center text-gray-600 hover:text-star-green transition"><span>Website</span> <i class="fas fa-chevron-right text-xs"></i></a></li>
+                            <li><a href="?s=seo" class="flex justify-between items-center text-gray-600 hover:text-star-green transition"><span>SEO</span> <i class="fas fa-chevron-right text-xs"></i></a></li>
+                            <li><a href="?s=social" class="flex justify-between items-center text-gray-600 hover:text-star-green transition"><span>Social Media</span> <i class="fas fa-chevron-right text-xs"></i></a></li>
+                            <li><a href="?s=ads" class="flex justify-between items-center text-gray-600 hover:text-star-green transition"><span>Ads</span> <i class="fas fa-chevron-right text-xs"></i></a></li>
+                            <li><a href="?s=branding" class="flex justify-between items-center text-gray-600 hover:text-star-green transition"><span>Branding</span> <i class="fas fa-chevron-right text-xs"></i></a></li>
+                            <li><a href="?s=consult" class="flex justify-between items-center text-gray-600 hover:text-star-green transition"><span>Consultation</span> <i class="fas fa-chevron-right text-xs"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold mb-4">Pilihan Paket</h2>
+                <p class="text-gray-500">Pilih paket yang sesuai dengan kebutuhan bisnis Anda.</p>
+            </div>
+            
+            <div id="pricing-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                </div>
+        </div>
+    </section>
+
+    <footer class="bg-star-green text-white py-20">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="space-y-6">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-white p-2 rounded-xl"><i class="fas fa-star text-star-green"></i></div>
+                    <span class="text-2xl font-black tracking-tighter">STAR<span class="text-white">.</span></span>
+                </div>
+                <p class="text-green-50 text-sm leading-relaxed">Solusi branding modern dan terpercaya untuk kemajuan bisnis digital Anda.</p>
+            </div>
+            <div>
+                <h5 class="font-extrabold text-xl mb-8">STAFF</h5>
+                <ul class="text-green-50 space-y-4 text-sm font-medium">
+                    <li><a href="about.html" class="hover:underline">Tentang STAR</a></li>
+                    <li><a href="index.html#faq" class="hover:underline">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-extrabold text-xl mb-8">PRODUK</h5>
+                <ul class="text-green-50 space-y-4 text-sm font-medium">
+                    <li><a href="services.html" class="hover:underline">Layanan</a></li>
+                    <li><a href="index.html#portofolio" class="hover:underline">Portofolio</a></li>
+                </ul>
+            </div>
+            <div class="space-y-6">
+                <h5 class="font-extrabold text-xl mb-8">KONTAK</h5>
+                <p class="text-green-50 text-sm font-bold">cs@star.web.id</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="bg-white/20 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white hover:text-star-green transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="bg-white/20 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white hover:text-star-green transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-20 pt-8 border-t border-white/20 text-green-100 text-[10px] font-bold tracking-[3px] uppercase">
+            © 2026 Star Digital Agency. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // MOBILE MENU
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+
+        // --- DYNAMIC CONTENT LOGIC ---
+        
+        // 1. Data Source
+        const servicesData = {
+            website: {
+                title: "Website Development",
+                breadcrumb: "Development",
+                descShort: "Bangun kredibilitas bisnis Anda dengan website profesional, cepat, dan responsif.",
+                img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=1200",
+                descLong: "Website adalah aset digital terpenting. Kami membangun website menggunakan teknologi terbaru yang menjamin kecepatan loading, keamanan data, dan tampilan yang memukau di semua perangkat (Desktop, Tablet, Mobile). Kami memastikan struktur kode yang SEO-friendly agar website Anda lebih mudah ditemukan di mesin pencari.",
+                features: ["Desain Responsif & Modern", "Gratis Domain & Hosting 1 Thn", "Optimasi Kecepatan (PageSpeed)", "Integrasi WhatsApp & Maps", "SEO Basic Setup", "Panduan Pengelolaan"],
+                packages: [
+                    { name: "Landing Page", price: "1.5jt", features: ["Single Page", "Domain .my.id", "Hosting Standar", "Revisi 2x"] },
+                    { name: "Company Profile", price: "3.5jt", features: ["Max 5 Halaman", "Domain .com", "Hosting SSD", "Revisi 5x"] },
+                    { name: "Toko Online", price: "5.5jt", features: ["Cart System", "Auto Ongkir", "Payment Gateway", "Revisi Unlimited"] }
+                ]
+            },
+            seo: {
+                title: "SEO Optimization",
+                breadcrumb: "Digital Marketing",
+                descShort: "Tingkatkan peringkat website Anda di halaman pertama Google secara organik.",
+                img: "https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?auto=format&fit=crop&q=80&w=1200",
+                descLong: "SEO bukan sihir, tapi strategi. Kami melakukan audit mendalam, riset kata kunci, dan optimasi teknis (On-Page & Off-Page) agar website Anda mendominasi hasil pencarian dan mendatangkan trafik berkualitas tanpa biaya iklan berulang.",
+                features: ["Audit Website Menyeluruh", "Riset Keyword Potensial", "Optimasi Meta Tags & Content", "Link Building Strategy", "Google Search Console Setup", "Laporan Bulanan"],
+                packages: [
+                    { name: "Basic SEO", price: "2jt", features: ["5 Keywords", "On-Page Only", "Audit Report", "1 Bulan Optimasi"] },
+                    { name: "Pro SEO", price: "4jt", features: ["15 Keywords", "On-Page & Off-Page", "Backlink Basic", "3 Bulan Kontrak"] },
+                    { name: "Expert SEO", price: "7jt", features: ["30+ Keywords", "Full Authority", "Backlink Premium", "6 Bulan Kontrak"] }
+                ]
+            },
+            social: {
+                title: "Social Media Management",
+                breadcrumb: "Creative",
+                descShort: "Kelola Instagram & TikTok Anda dengan konten kreatif yang menarik audiens.",
+                img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&q=80&w=1200",
+                descLong: "Kami membantu brand Anda tampil konsisten di media sosial. Dari perencanaan ide konten (content pillar), desain grafis, video editing, hingga manajemen posting dan interaksi dengan followers untuk meningkatkan Engagement Rate.",
+                features: ["Content Planning & Strategy", "Desain Feed & Story Premium", "Video Reels/TikTok Editing", "Copywriting Menarik", "Admin Posting Terjadwal", "Laporan Insight Bulanan"],
+                packages: [
+                    { name: "Starter", price: "1.5jt", features: ["12 Feed Post", "Copywriting", "No Admin", "Revisi 2x"] },
+                    { name: "Business", price: "3jt", features: ["20 Feed + 4 Reels", "Admin Posting", "Story Harian", "Revisi 4x"] },
+                    { name: "Viral", price: "5jt", features: ["30 Feed + 10 Reels", "Full Admin", "KOL Management", "Revisi Unlimited"] }
+                ]
+            },
+            ads: {
+                title: "Digital Ads (Paid)",
+                breadcrumb: "Marketing",
+                descShort: "Iklan tertarget di Facebook, Instagram, dan Google untuk hasil instan.",
+                img: "https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&q=80&w=1200",
+                descLong: "Dapatkan prospek pelanggan dengan cepat. Kami merancang kampanye iklan yang efektif, menargetkan audiens berdasarkan demografi, minat, dan perilaku belanja mereka untuk memaksimalkan ROI Anda.",
+                features: ["Meta Ads (FB/IG)", "Google Search & Display Ads", "Targeting Audience Riset", "A/B Testing Creatives", "Setup Pixel/Conversion API", "Laporan Performa Real-time"],
+                packages: [
+                    { name: "Setup Only", price: "1jt", features: ["1 Campaign", "Audience Setup", "1 Creative", "Tanpa Monitoring"] },
+                    { name: "Monthly Manage", price: "2.5jt", features: ["3 Campaigns", "A/B Testing", "Monitoring Harian", "Report Mingguan"] },
+                    { name: "Scale Up", price: "5jt", features: ["Unlimited Camp", "Advanced Funnel", "Retargeting", "Dedicated Manager"] }
+                ]
+            },
+            branding: {
+                title: "Identity Design",
+                breadcrumb: "Creative",
+                descShort: "Ciptakan identitas visual yang ikonik dan mudah diingat oleh pelanggan.",
+                img: "https://images.unsplash.com/photo-1626785774573-4b799314346d?auto=format&fit=crop&q=80&w=1200",
+                descLong: "Logo adalah wajah bisnis Anda. Kami mendesain identitas brand yang tidak hanya estetis, tetapi juga memiliki filosofi yang kuat dan relevan dengan target pasar Anda. Kami memastikan konsistensi visual di seluruh aset bisnis Anda.",
+                features: ["Logo Design Original", "Filosofi & Konsep Visual", "Brand Guideline Book", "Kartu Nama & Kop Surat", "Mockup Implementasi", "File Master Lengkap (AI/EPS)"],
+                packages: [
+                    { name: "Logo Only", price: "1jt", features: ["2 Konsep Logo", "File Master", "Filosofi", "Revisi 3x"] },
+                    { name: "Brand Identity", price: "3jt", features: ["3 Konsep", "Brand Guideline", "Stationery Kit", "Revisi 5x"] },
+                    { name: "Full Corporate", price: "7jt", features: ["Premium Identity", "Company Profile", "Social Kit", "Revisi Unlimited"] }
+                ]
+            },
+            consult: {
+                title: "Consultation & Support",
+                breadcrumb: "Support",
+                descShort: "Pendampingan teknis dan konsultasi strategi digital untuk bisnis Anda.",
+                img: "https://images.unsplash.com/photo-1553877606-3c60727f7301?auto=format&fit=crop&q=80&w=1200",
+                descLong: "Bingung mulai dari mana? Atau butuh tim IT tapi belum siap hire full-time? Kami menyediakan layanan konsultasi dan maintenance untuk menjaga aset digital Anda tetap aman dan performa maksimal.",
+                features: ["Konsultasi Strategi Digital", "Maintenance Website Bulanan", "Audit Keamanan Sistem", "Backup Data Rutin", "Perbaikan Bug/Error", "Training Staff"],
+                packages: [
+                    { name: "Hourly", price: "500rb", features: ["1 Jam Sesi", "Via Zoom/Meet", "Rekaman Sesi", "PDF Rangkuman"] },
+                    { name: "Monthly Maint.", price: "1.5jt", features: ["Update Plugin", "Backup Mingguan", "Security Scan", "Report"] },
+                    { name: "IT Retainer", price: "Call", features: ["Tim IT Dedikasi", "Prioritas Support", "Custom Scope", "Kontrak"] }
+                ]
+            }
+        };
+
+        // 2. Load Content based on URL Param
+        function loadService() {
+            const params = new URLSearchParams(window.location.search);
+            const serviceKey = params.get('s') || 'website'; // Default ke website jika kosong
+            const data = servicesData[serviceKey];
+
+            if(data) {
+                // Update Text & Images
+                document.getElementById('breadcrumb-current').textContent = data.breadcrumb;
+                document.getElementById('service-title').textContent = data.title;
+                document.getElementById('service-desc-short').textContent = data.descShort;
+                document.getElementById('service-desc-long').textContent = data.descLong;
+                document.getElementById('service-img').src = data.img;
+
+                // Update Features List
+                const featuresList = document.getElementById('service-features');
+                featuresList.innerHTML = data.features.map(f => `<li>${f}</li>`).join('');
+
+                // Update Pricing Cards (Equal Height Logic with Flex)
+                const pricingContainer = document.getElementById('pricing-container');
+                pricingContainer.innerHTML = data.packages.map((pkg, index) => {
+                    const isPopular = index === 1; // Paket tengah jadi populer
+                    return `
+                    <div class="bg-white p-8 rounded-[2.5rem] border ${isPopular ? 'border-2 border-star-green shadow-xl relative' : 'border-gray-100 shadow-sm'} flex flex-col h-full">
+                        ${isPopular ? '<div class="absolute top-0 right-0 bg-star-green text-white text-xs font-bold px-4 py-2 rounded-bl-xl rounded-tr-[2.3rem]">BEST CHOICE</div>' : ''}
+                        
+                        <h3 class="font-bold ${isPopular ? 'text-star-green' : 'text-gray-400'} text-sm uppercase tracking-widest mb-4">${pkg.name}</h3>
+                        <div class="text-3xl font-black mb-6">Rp ${pkg.price}</div>
+                        
+                        <ul class="check-list text-sm space-y-3 mb-8 flex-grow">
+                            ${pkg.features.map(f => `<li>${f}</li>`).join('')}
+                        </ul>
+                        
+                        <a href="https://wa.me/628112772788?text=Halo%20Star%20Digital,%20saya%20tertarik%20paket%20${pkg.name}%20untuk%20layanan%20${data.title}" class="w-full ${isPopular ? 'bg-star-green text-white hover:shadow-lg' : 'border-2 border-gray-200 hover:border-star-green hover:text-star-green'} font-bold py-3 rounded-xl transition text-center mt-auto block">Pilih Paket</a>
+                    </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        // Run on load
+        loadService();
+    </script>
+</body>
+</html>

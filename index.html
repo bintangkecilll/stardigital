@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Digital Agency - Premium Digital Solutions</title>
+    <meta name="description" content="Jasa pembuatan website premium, SEO, dan digital marketing di Indonesia. Star Digital Agency membantu transformasi bisnis Anda dengan desain elegan dan performa tinggi.">
+    <meta name="keywords" content="Jasa Website, Digital Agency, SEO Specialist, Web Developer, Branding Identity">
+    <meta name="author" content="Star Digital Agency">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://star.web.id/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://star.web.id/">
+    <meta property="og:title" content="Star Digital Agency - Premium Digital Solutions">
+    <meta property="og:description" content="Partner pertumbuhan bisnis Anda di era digital. Website, SEO, dan Branding dalam satu atap.">
+    <meta property="og:image" content="https://star.web.id/assets/og-home.jpg">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#28b463">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        .bg-star-green { background-color: #28b463; }
+        .bg-star-light-green { background-color: #4ade80; }
+        .text-star-green { color: #28b463; }
+        
+        /* Service Hover Animation */
+        .service-card .content-default { transition: all 0.4s ease; opacity: 1; }
+        .service-card .content-hover { transition: all 0.4s ease; opacity: 0; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transform: translateY(10px); }
+        .service-card:hover .content-default { opacity: 0; transform: scale(0.95); }
+        .service-card:hover .content-hover { opacity: 1; transform: translateY(0); }
+
+        /* Hero Animation */
+        .hero-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* FAQ Accordion */
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+        .faq-item.active .faq-answer { max-height: 200px; padding-top: 1rem; }
+        .faq-item.active i { transform: rotate(180deg); }
+
+        /* Testimonial Slider logic */
+        #testimonial-container { scroll-behavior: smooth; scrollbar-width: none; -ms-overflow-style: none; }
+        #testimonial-container::-webkit-scrollbar { display: none; }
+
+        /* Sponsor Marquee Animation */
+        .marquee-wrapper { overflow: hidden; width: 100%; position: relative; }
+        .marquee-content { display: flex; width: max-content; animation: scroll 20s linear infinite; }
+        .marquee-content:hover { animation-play-state: paused; }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+
+    <div class="fixed bottom-6 right-4 md:right-6 z-[99] flex flex-col space-y-4">
+        <button id="scrollTop" class="hidden bg-gray-900 text-white w-12 h-12 md:w-14 md:h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-star-green transition" aria-label="Scroll to Top">
+            <i class="fas fa-arrow-up text-sm md:text-base"></i>
+        </button>
+        <a href="https://wa.me/628112772788" target="_blank" class="bg-[#25D366] text-white w-12 h-12 md:w-14 md:h-14 rounded-full shadow-2xl flex items-center justify-center text-xl md:text-2xl hover:scale-110 transition" aria-label="Chat WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+<nav class="fixed w-full z-[60] bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-8 py-4 flex justify-between items-center relative">
+            <div class="flex items-center space-x-2">
+                <div class="bg-star-green p-2 rounded-xl">
+                    <i class="fas fa-star text-white"></i>
+                </div>
+                <span class="text-2xl font-extrabold tracking-tighter text-gray-900">STAR<span class="text-star-green">.</span></span>
+            </div>
+
+            <div class="hidden md:flex space-x-10 font-bold text-[16px] items-center">
+                <a href="index.html" class="hover:text-star-green transition">Home</a>
+                <a href="about.html" class="hover:text-star-green transition">Tentang Kami</a>
+                <a href="service.html" class="hover:text-star-green transition">Layanan</a>
+                <a href="portfolio.html" class="hover:text-star-green transition">Portofolio</a>
+            </div>
+            
+            <button onclick="window.location.href='kontak.html'" class="hidden md:block bg-star-green text-white px-8 py-3 rounded-full font-bold hover:shadow-lg transition">
+                HUBUNGI KAMI
+            </button>
+
+            <button id="mobile-menu-btn" class="md:hidden text-gray-900 text-2xl focus:outline-none p-2" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl flex flex-col p-6 space-y-4">
+            <a href="index.html" class="font-bold text-gray-700 hover:text-star-green block py-2 border-b border-gray-50">Home</a>
+            <a href="about.html" class="font-bold text-gray-700 hover:text-star-green block py-2 border-b border-gray-50">Tentang Kami</a>
+            <a href="service.html" class="font-bold text-gray-700 hover:text-star-green block py-2 border-b border-gray-50">Layanan</a>
+            <a href="portfolio.html" class="font-bold text-gray-700 hover:text-star-green block py-2 border-b border-gray-50">Portofolio</a>
+            
+            <div class="pt-4 flex justify-center w-full">
+                <button class="bg-star-green text-white w-full py-3 rounded-full font-bold shadow-lg" onclick="window.location.href='kontak.html'">HUBUNGI KAMI</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative pt-32 md:pt-40 pb-20 px-6 min-h-[80vh] flex items-center overflow-hidden">
+        <div class="container mx-auto">
+            <div id="hero-content" class="flex flex-col-reverse md:flex-row items-center transition-all duration-500 gap-8 md:gap-0">
+                </div>
+        </div>
+        <div class="absolute top-20 -right-20 w-96 h-96 bg-green-50 rounded-full blur-3xl -z-10"></div>
+    </section>
+
+    <section id="layanan" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
+                <div class="md:w-1/2 p-8 rounded-[2.5rem] bg-gray-50 border border-gray-100">
+                    <h2 class="text-3xl font-black text-star-green mb-4">STAR DIGITAL AGENCY.</h2>
+                    <p class="text-gray-500 font-medium italic">Partner pertumbuhan bisnis Anda di era digital.</p>
+                </div>
+                
+                <div class="text-center md:text-right w-full md:w-auto">
+                    <span class="text-xs font-bold uppercase tracking-widest text-gray-400">Our Premium Excellence</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div onclick="window.location.href='service-detail.html?s=website'" class="service-card relative bg-white border-2 border-gray-50 p-6 rounded-[2.5rem] h-96 shadow-sm hover:shadow-2xl transition-all cursor-pointer overflow-hidden group">
+                    <div class="content-default flex flex-col items-center justify-center h-full text-center">
+                        <img src="https://illustrations.popsy.co/green/web-design.svg" class="w-full max-w-[260px] h-auto mb-4 group-hover:scale-105 transition duration-500" alt="Jasa Web Design" loading="lazy">
+                        <p class="font-extrabold text-xl">WEBSITE</p>
+                    </div>
+                    <div class="content-hover bg-star-green p-8 text-white text-center rounded-[2.5rem]">
+                        <div>
+                            <i class="fas fa-code text-5xl mb-4"></i>
+                            <h4 class="font-bold text-xl mb-2">Web Development</h4>
+                            <p class="text-sm">Landing page & E-commerce dengan performa tinggi dan responsif.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="window.location.href='service-detail.html?s=seo'" class="service-card relative bg-white border-2 border-gray-50 p-6 rounded-[2.5rem] h-96 shadow-sm hover:shadow-2xl transition-all cursor-pointer overflow-hidden group">
+                    <div class="content-default flex flex-col items-center justify-center h-full text-center">
+                        <img src="https://nore.web.id/wp-content/uploads/2024/03/NDA-Website_Ilustrasi_Menu_Tentang-2048x2048.png" class="w-full max-w-[260px] h-auto mb-4 group-hover:scale-105 transition duration-500" alt="Jasa SEO" loading="lazy">
+                        <p class="font-extrabold text-xl">SEO</p>
+                    </div>
+                    <div class="content-hover bg-star-green p-8 text-white text-center rounded-[2.5rem]">
+                        <div>
+                            <i class="fas fa-search text-5xl mb-4"></i>
+                            <h4 class="font-bold text-xl mb-2">Search Engine</h4>
+                            <p class="text-sm">Optimasi kata kunci untuk menaikkan peringkat website Anda di Google.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="window.location.href='service-detail.html?s=social'" class="service-card relative bg-white border-2 border-gray-50 p-6 rounded-[2.5rem] h-96 shadow-sm hover:shadow-2xl transition-all cursor-pointer overflow-hidden group">
+                    <div class="content-default flex flex-col items-center justify-center h-full text-center">
+                        <img src="https://nore.web.id/wp-content/uploads/2024/04/NDA-Website_Ilustrasi_Menu_Branding.webp" class="w-full max-w-[260px] h-auto mb-4 group-hover:scale-105 transition duration-500" alt="Social Media Management" loading="lazy">
+                        <p class="font-extrabold text-xl">SOCIAL MEDIA</p>
+                    </div>
+                    <div class="content-hover bg-star-green p-8 text-white text-center rounded-[2.5rem]">
+                        <div>
+                            <i class="fab fa-instagram text-5xl mb-4"></i>
+                            <h4 class="font-bold text-xl mb-2">Management</h4>
+                            <p class="text-sm">Konten kreatif dan manajemen akun profesional setiap hari.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="window.location.href='service-detail.html?s=ads'" class="service-card relative bg-white border-2 border-gray-50 p-6 rounded-[2.5rem] h-96 shadow-sm hover:shadow-2xl transition-all cursor-pointer overflow-hidden group">
+                    <div class="content-default flex flex-col items-center justify-center h-full text-center">
+                        <img src="https://nore.web.id/wp-content/uploads/2024/04/NDA-Website_Ilustrasi_Menu_Digital-Marketing.webp" class="w-full max-w-[260px] h-auto mb-4 group-hover:scale-105 transition duration-500" alt="Jasa Iklan Digital" loading="lazy">
+                        <p class="font-extrabold text-xl">ADS</p>
+                    </div>
+                    <div class="content-hover bg-star-green p-8 text-white text-center rounded-[2.5rem]">
+                        <div>
+                            <i class="fas fa-bullhorn text-5xl mb-4"></i>
+                            <h4 class="font-bold text-xl mb-2">Paid Promotion</h4>
+                            <p class="text-sm">Strategi iklan Meta Ads dan Google Ads yang terukur dan konversi tinggi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="window.location.href='service-detail.html?s=branding'" class="service-card relative bg-white border-2 border-gray-50 p-6 rounded-[2.5rem] h-96 shadow-sm hover:shadow-2xl transition-all cursor-pointer overflow-hidden group">
+                    <div class="content-default flex flex-col items-center justify-center h-full text-center">
+                        <img src="https://illustrations.popsy.co/green/digital-nomad.svg" class="w-full max-w-[260px] h-auto mb-4 group-hover:scale-105 transition duration-500" alt="Jasa Branding" loading="lazy">
+                        <p class="font-extrabold text-xl">BRANDING</p>
+                    </div>
+                    <div class="content-hover bg-star-green p-8 text-white text-center rounded-[2.5rem]">
+                        <div>
+                            <i class="fas fa-paint-brush text-5xl mb-4"></i>
+                            <h4 class="font-bold text-xl mb-2">Identity Design</h4>
+                            <p class="text-sm">Pembuatan logo dan identitas visual yang ikonik untuk bisnis Anda.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div onclick="window.location.href='service-detail.html?s=consult'" class="service-card relative bg-white border-2 border-gray-50 p-6 rounded-[2.5rem] h-96 shadow-sm hover:shadow-2xl transition-all cursor-pointer overflow-hidden group">
+                    <div class="content-default flex flex-col items-center justify-center h-full text-center">
+                        <img src="https://nore.web.id/wp-content/uploads/2024/04/NDA-Website_Ilustrasi_Menu_FAQ.webp" class="w-full max-w-[260px] h-auto mb-4 group-hover:scale-105 transition duration-500" alt="FAQ Icon" loading="lazy">
+                        <p class="font-extrabold text-xl">FAQ</p>
+                    </div>
+                    <div class="content-hover bg-star-green p-8 text-white text-center rounded-[2.5rem]">
+                        <div>
+                            <i class="fas fa-question-circle text-5xl mb-4"></i>
+                            <h4 class="font-bold text-xl mb-2">Bantuan Cepat</h4>
+                            <p class="text-sm">Punya pertanyaan? Temukan jawaban lengkap di section bantuan kami.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portofolio" class="py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-end mb-12">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-star-green">PORTFOLIO</h2>
+                <a href="portfolio.html" class="hidden md:inline-block bg-star-green text-white px-8 py-3 rounded-full font-bold hover:shadow-lg transition">Selengkapnya</a>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <a href="portfolio.html?filter=website" class="group relative overflow-hidden rounded-[2.5rem] h-[400px] md:h-[450px] shadow-xl block">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Portfolio Logistics Web" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent flex flex-col justify-end p-8 md:p-10 text-white opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-2xl font-bold">Logistics Web</h3>
+                        <p class="text-sm mt-2">Lihat Project <i class="fas fa-external-link-alt ml-2"></i></p>
+                    </div>
+                </a>
+                <a href="portfolio.html?filter=branding" class="group relative overflow-hidden rounded-[2.5rem] h-[400px] md:h-[450px] shadow-xl block">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Portfolio E-Commerce Luxury" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent flex flex-col justify-end p-8 md:p-10 text-white opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-2xl font-bold">E-Commerce Luxury</h3>
+                        <p class="text-sm mt-2">Lihat Project <i class="fas fa-external-link-alt ml-2"></i></p>
+                    </div>
+                </a>
+                <a href="portfolio.html?filter=social" class="group relative overflow-hidden rounded-[2.5rem] h-[400px] md:h-[450px] shadow-xl block">
+                    <img src="https://images.unsplash.com/photo-1491933382434-500287f9b54b?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition duration-700" alt="Portfolio Social Management" loading="lazy">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent flex flex-col justify-end p-8 md:p-10 text-white opacity-0 group-hover:opacity-100 transition duration-500">
+                        <h3 class="text-2xl font-bold">Social Management</h3>
+                        <p class="text-sm mt-2">Lihat Project <i class="fas fa-external-link-alt ml-2"></i></p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="mt-8 text-center md:hidden">
+                <a href="portfolio.html" class="inline-block w-full bg-star-green text-white px-8 py-4 rounded-full font-bold shadow-lg">Selengkapnya</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-star-green mb-16 text-center">APA KATA MEREKA?</h2>
+            
+            <div class="relative group">
+                <button onclick="slideTesti('prev')" class="absolute -left-2 md:-left-12 top-1/2 -translate-y-1/2 z-20 bg-white shadow-2xl w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center text-star-green hover:bg-star-green hover:text-white transition" aria-label="Previous Slide">
+                    <i class="fas fa-chevron-left text-sm md:text-xl"></i>
+                </button>
+                <button onclick="slideTesti('next')" class="absolute -right-2 md:-right-12 top-1/2 -translate-y-1/2 z-20 bg-white shadow-2xl w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center text-star-green hover:bg-star-green hover:text-white transition" aria-label="Next Slide">
+                    <i class="fas fa-chevron-right text-sm md:text-xl"></i>
+                </button>
+
+                <div id="testimonial-container" class="flex overflow-x-auto gap-8 py-4 snap-x snap-mandatory px-4">
+                    
+                    <div class="min-w-full md:min-w-[450px] snap-center">
+                        <div class="bg-gray-50 p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-xl transition h-full">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?u=andi" class="w-14 h-14 md:w-16 md:h-16 rounded-2xl object-cover border-4 border-white shadow-md" alt="Foto Client Andi" loading="lazy">
+                                <div>
+                                    <h5 class="font-black text-lg">Andi Wijaya</h5>
+                                    <p class="text-xs text-star-green font-bold">CEO Otomotif Jember</p>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="italic text-gray-600 leading-relaxed font-medium">"Website kami jadi jauh lebih cepat dan profesional. Tim Star Digital sangat komunikatif dan mengerti kebutuhan user kami."</p>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full md:min-w-[450px] snap-center">
+                        <div class="bg-gray-50 p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] border-2 border-star-green shadow-xl h-full">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?u=siska" class="w-14 h-14 md:w-16 md:h-16 rounded-2xl object-cover border-4 border-white shadow-md" alt="Foto Client Siska" loading="lazy">
+                                <div>
+                                    <h5 class="font-black text-lg">Siska Putri</h5>
+                                    <p class="text-xs text-star-green font-bold">Owner Fashion Brand</p>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="italic text-gray-600 leading-relaxed font-medium">"Omset naik 3x lipat sejak menggunakan jasa Meta Ads dari Star Digital. Analisis mereka sangat tajam dan tepat sasaran!"</p>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full md:min-w-[450px] snap-center">
+                        <div class="bg-gray-50 p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] border border-gray-100 shadow-sm h-full">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?u=rizky" class="w-14 h-14 md:w-16 md:h-16 rounded-2xl object-cover border-4 border-white shadow-md" alt="Foto Client Rizky" loading="lazy">
+                                <div>
+                                    <h5 class="font-black text-lg">Rizky Ramadhan</h5>
+                                    <p class="text-xs text-star-green font-bold">Founder Tech Start-up</p>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="italic text-gray-600 leading-relaxed font-medium">"Desain logo dan feed Instagram yang dibuat sangat estetik dan berkelas. Sangat membantu menaikkan branding value kami."</p>
+                        </div>
+                    </div>
+
+                    <div class="min-w-full md:min-w-[450px] snap-center">
+                        <div class="bg-gray-50 p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] border border-gray-100 shadow-sm h-full">
+                            <div class="flex items-center space-x-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?u=budi" class="w-14 h-14 md:w-16 md:h-16 rounded-2xl object-cover border-4 border-white shadow-md" alt="Foto Client Budi" loading="lazy">
+                                <div>
+                                    <h5 class="font-black text-lg">Budi Santoso</h5>
+                                    <p class="text-xs text-star-green font-bold">Property Developer</p>
+                                </div>
+                            </div>
+                            <div class="flex text-yellow-400 mb-4 text-xs"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="italic text-gray-600 leading-relaxed font-medium">"Sangat puas dengan sistem kustom yang dibangun. Pekerjaan operasional kantor kami jadi jauh lebih efisien."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-20 bg-gray-50 overflow-hidden">
+        <div class="text-center mb-8 md:mb-12">
+            <p class="text-gray-400 font-bold tracking-widest uppercase text-xs">TRUSTED BY INDUSTRY GIANTS</p>
+        </div>
+        
+        <div class="marquee-wrapper">
+            <div class="marquee-content gap-12 md:gap-20 px-6">
+                <i class="fab fa-apple text-5xl text-gray-300 hover:text-black transition duration-300 cursor-pointer"></i>
+                <i class="fab fa-google text-5xl text-gray-300 hover:text-[#4285F4] transition duration-300 cursor-pointer"></i>
+                <i class="fab fa-amazon text-5xl text-gray-300 hover:text-[#FF9900] transition duration-300 cursor-pointer"></i>
+                <i class="fab fa-spotify text-5xl text-gray-300 hover:text-[#1DB954] transition duration-300 cursor-pointer"></i>
+                <i class="fab fa-microsoft text-5xl text-gray-300 hover:text-[#00A4EF] transition duration-300 cursor-pointer"></i>
+                
+                <i class="fab fa-apple text-5xl text-gray-300 hover:text-black transition duration-300 cursor-pointer"></i>
+                <i class="fab fa-google text-5xl text-gray-300 hover:text-[#4285F4] transition duration-300 cursor-pointer"></i>
+                <i class="fab fa-amazon text-5xl text-gray-300 hover:text-[#FF9900] transition duration-300 cursor-pointer"></i>
+                <i class="fab fa-spotify text-5xl text-gray-300 hover:text-[#1DB954] transition duration-300 cursor-pointer"></i>
+                <i class="fab fa-microsoft text-5xl text-gray-300 hover:text-[#00A4EF] transition duration-300 cursor-pointer"></i>
+
+                <i class="fab fa-apple text-5xl text-gray-300 hover:text-black transition duration-300 cursor-pointer"></i>
+                <i class="fab fa-google text-5xl text-gray-300 hover:text-[#4285F4] transition duration-300 cursor-pointer"></i>
+                <i class="fab fa-amazon text-5xl text-gray-300 hover:text-[#FF9900] transition duration-300 cursor-pointer"></i>
+                <i class="fab fa-spotify text-5xl text-gray-300 hover:text-[#1DB954] transition duration-300 cursor-pointer"></i>
+                <i class="fab fa-microsoft text-5xl text-gray-300 hover:text-[#00A4EF] transition duration-300 cursor-pointer"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-20 px-4 bg-white">
+        <div class="container mx-auto bg-star-light-green rounded-[2.5rem] md:rounded-[3rem] p-8 md:p-20 relative overflow-hidden flex flex-col md:flex-row items-center justify-between shadow-2xl">
+            <div class="z-10 text-white space-y-4 md:space-y-6 md:w-3/5 text-center md:text-left">
+                <h2 class="text-2xl md:text-5xl font-extrabold leading-tight">BUTUH SISTEM CUSTOM UNTUK BISNIS ANDA?</h2>
+                <p class="text-white/90 text-sm md:text-lg">Membangun aplikasi mobile, sistem kasir, hingga manajemen stok terintegrasi.</p>
+                <button class="bg-white text-star-green px-8 py-3 md:px-10 md:py-4 rounded-full font-bold hover:bg-gray-50 transition shadow-lg text-sm md:text-base mt-4">Diskusi Sekarang <i class="fas fa-arrow-right ml-2"></i></button>
+            </div>
+            <img src="https://illustrations.popsy.co/green/product-launch.svg" class="w-48 md:w-80 z-10 hidden md:block mt-8 md:mt-0" alt="Ilustrasi Product Launch" loading="lazy">
+            <div class="absolute -top-10 -right-10 w-40 h-40 md:w-64 md:h-64 bg-white/20 rounded-full blur-2xl"></div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row gap-12 md:gap-16 items-center">
+                <div class="md:w-5/12 relative">
+                    <div class="bg-star-green/5 p-8 md:p-12 rounded-[2.5rem] md:rounded-[3.5rem] relative">
+                        <img src="https://illustrations.popsy.co/green/student-going-to-school.svg" class="w-full relative z-10" alt="FAQ Illustration" loading="lazy">
+                    </div>
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-yellow-400 rounded-full blur-[80px] opacity-30"></div>
+                </div>
+                <div class="md:w-7/12">
+                    <h2 class="text-3xl md:text-4xl font-extrabold mb-4">PERTANYAAN UMUM</h2>
+                    <p class="text-gray-400 mb-10">Berikut adalah beberapa pertanyaan yang sering diajukan oleh klien kami.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="faq-item border-2 border-gray-50 p-6 rounded-3xl cursor-pointer hover:border-star-green transition active">
+                            <div class="flex justify-between items-center font-bold text-lg">
+                                <span>Berapa lama proses pembuatan website?</span>
+                                <i class="fas fa-chevron-down text-sm transition-transform"></i>
+                            </div>
+                            <div class="faq-answer text-gray-500">Tergantung kerumitan, rata-rata website landing page selesai dalam 3-7 hari kerja.</div>
+                        </div>
+                        <div class="faq-item border-2 border-gray-50 p-6 rounded-3xl cursor-pointer hover:border-star-green transition">
+                            <div class="flex justify-between items-center font-bold text-lg">
+                                <span>Apakah sudah termasuk domain dan hosting?</span>
+                                <i class="fas fa-chevron-down text-sm transition-transform"></i>
+                            </div>
+                            <div class="faq-answer text-gray-500">Ya, semua paket kami sudah termasuk Domain (.com/.id) dan Hosting premium selama 1 tahun pertama.</div>
+                        </div>
+                        <div class="faq-item border-2 border-gray-50 p-6 rounded-3xl cursor-pointer hover:border-star-green transition">
+                            <div class="flex justify-between items-center font-bold text-lg">
+                                <span>Apakah website bisa diedit sendiri nantinya?</span>
+                                <i class="fas fa-chevron-down text-sm transition-transform"></i>
+                            </div>
+                            <div class="faq-answer text-gray-500">Sangat bisa! Kami memberikan akses penuh dan panduan tutorial cara mengelola konten website Anda.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-star-green text-white py-20">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="space-y-6">
+                <div class="flex items-center space-x-2">
+                    <div class="bg-white p-2 rounded-xl"><i class="fas fa-star text-star-green"></i></div>
+                    <span class="text-2xl font-black tracking-tighter">STAR<span class="text-white">.</span></span>
+                </div>
+                <p class="text-green-50 text-sm leading-relaxed">Solusi branding modern dan terpercaya untuk kemajuan bisnis digital Anda.</p>
+            </div>
+            <div>
+                <h5 class="font-extrabold text-xl mb-8">STAFF</h5>
+                <ul class="text-green-50 space-y-4 text-sm font-medium">
+                    <li><a href="about.html" class="hover:underline">Tentang STAR</a></li>
+                    <li><a href="#faq" class="hover:underline">FAQ</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-extrabold text-xl mb-8">PRODUK</h5>
+                <ul class="text-green-50 space-y-4 text-sm font-medium">
+                    <li><a href="#layanan" class="hover:underline">Layanan</a></li>
+                    <li><a href="#portofolio" class="hover:underline">Portofolio</a></li>
+                </ul>
+            </div>
+            <div class="space-y-6">
+                <h5 class="font-extrabold text-xl mb-8">KONTAK</h5>
+                <p class="text-green-50 text-sm font-bold">cs@star.web.id</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="bg-white/20 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white hover:text-star-green transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="bg-white/20 w-10 h-10 flex items-center justify-center rounded-full hover:bg-white hover:text-star-green transition"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-20 pt-8 border-t border-white/20 text-green-100 text-[10px] font-bold tracking-[3px] uppercase">
+            © 2026 Star Digital Agency. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+            
+            const icon = mobileBtn.querySelector('i');
+            if(mobileMenu.classList.contains('hidden')){
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                mobileBtn.querySelector('i').classList.remove('fa-times');
+                mobileBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        const heroData = [
+            { h1: "Website.<br>No Repot.<br>No Rempong.", p: "Solusi branding yang mengedepankan kemudahan untuk pelanggan.", img: "https://illustrations.popsy.co/green/remote-work.svg" },
+            { h1: "Branding.<br>Elegant.<br>Professional.", p: "Tampil lebih berkelas dan dipercaya oleh pelanggan dunia.", img: "https://illustrations.popsy.co/green/creative-work.svg" }
+        ];
+
+        let currentHero = 0;
+        function updateHero() {
+            const item = heroData[currentHero];
+            document.getElementById('hero-content').innerHTML = `
+                <div class="md:w-1/2 space-y-6 md:space-y-8 hero-fade-in text-center md:text-left pt-8 md:pt-0">
+                    <h1 class="text-5xl md:text-8xl font-black leading-[0.9] text-gray-900">${item.h1}</h1>
+                    <p class="text-base md:text-lg text-gray-400 max-w-md mx-auto md:mx-0 italic font-medium">${item.p}</p>
+                    <button class="bg-star-green text-white px-8 py-4 md:px-10 md:py-5 rounded-full font-black hover:scale-110 transition transform shadow-xl">Info Pricelist <i class="fas fa-chevron-right ml-2 text-sm"></i></button>
+                </div>
+                <div class="md:w-1/2 hero-fade-in w-full flex justify-center"><img src="${item.img}" class="w-4/5 md:w-full max-w-xl mx-auto drop-shadow-2xl" alt="Hero Illustration"></div>
+            `;
+            currentHero = (currentHero + 1) % heroData.length;
+        }
+        setInterval(updateHero, 4000);
+        updateHero();
+
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if(!isActive) item.classList.add('active');
+            });
+        });
+
+        const testiContainer = document.getElementById('testimonial-container');
+        function slideTesti(direction) {
+            const scrollAmount = testiContainer.clientWidth >= 450 ? 482 : testiContainer.clientWidth;
+            if (direction === 'next') testiContainer.scrollLeft += scrollAmount;
+            else testiContainer.scrollLeft -= scrollAmount;
+        }
+
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scrollTop');
+            if (window.scrollY > 500) btn.classList.remove('hidden');
+            else btn.classList.add('hidden');
+        });
+        document.getElementById('scrollTop').addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    </script>
+</body>
+</html>
